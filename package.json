@@ -1,0 +1,25 @@
+{
+  "name": "mendix-dep-scanner",
+  "version": "2.0.0",
+  "description": "Scan all Mendix public cloud apps for dependency versions and Marketplace metadata",
+  "scripts": {
+    "list": "ts-node mendix-dep-scanner.ts --list-apps",
+    "scan:all": "ts-node mendix-dep-scanner.ts --all-apps",
+    "scan": "ts-node mendix-dep-scanner.ts",
+    "build": "tsc",
+    "scan:built": "node dist/mendix-dep-scanner.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "mendixmodelsdk": "^4.88.0",
+    "mendixplatformsdk": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

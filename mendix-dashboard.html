@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PostNL · Mendix Portfolio Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:     #FF6200;
+  --orange-d:   #D94F00;
+  --orange-l:   #FF8533;
+  --orange-dim: rgba(255,98,0,0.10);
+  --orange-glow:rgba(255,98,0,0.06);
+  --bg:         #F5F5F0;
+  --bg2:        #EEEEE8;
+  --white:      #FFFFFF;
+  --surface:    #FFFFFF;
+  --border:     #DDDDD8;
+  --border2:    #CCCCCC;
+  --text:       #1A1A1A;
+  --text2:      #444444;
+  --muted:      #888888;
+  --faint:      #BBBBBB;
+  --green:      #1A8040;
+  --green-dim:  rgba(26,128,64,0.10);
+  --red:        #C0392B;
+  --red-dim:    rgba(192,57,43,0.10);
+  --blue:       #1A5EAF;
+  --blue-dim:   rgba(26,94,175,0.10);
+  --yellow:     #E6A817;
+  --yellow-dim: rgba(230,168,23,0.10);
+  --display:    'Barlow Condensed', sans-serif;
+  --body:       'Barlow', sans-serif;
+  --mono:       'JetBrains Mono', monospace;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--body); background:var(--bg); color:var(--text); min-height:100vh; font-size:14px; }
+
+/* ── DROP ZONE ─────────────────────────────────────── */
+#dropzone {
+  position:fixed; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; background:var(--white);
+  z-index:500; gap:20px; transition:background 0.2s;
+}
+#dropzone.drag { background:#FFF8F4; }
+#dropzone.hidden { display:none; }
+.drop-logo { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.drop-logo-box {
+  width:52px; height:52px; background:var(--orange); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-size:22px; font-weight:800; color:#fff; letter-spacing:-1px;
+}
+.drop-logo-name { font-family:var(--display); font-size:28px; font-weight:800; color:var(--text); letter-spacing:-0.5px; }
+.drop-logo-name span { color:var(--orange); }
+.drop-ring {
+  width:160px; height:160px; border:2px dashed var(--border2); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:52px;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+#dropzone.drag .drop-ring { border-color:var(--orange); box-shadow:0 0 32px var(--orange-dim); }
+.drop-title { font-family:var(--display); font-size:26px; font-weight:800; letter-spacing:-0.3px; }
+.drop-sub { color:var(--muted); font-size:13px; text-align:center; line-height:1.8; }
+.drop-sub code { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:2px 7px; font-family:var(--mono); font-size:12px; color:var(--orange); }
+.drop-btn {
+  background:var(--orange); color:#fff; border:none; border-radius:6px;
+  padding:11px 28px; font-family:var(--display); font-size:15px; font-weight:700;
+  letter-spacing:0.5px; text-transform:uppercase; cursor:pointer; transition:background 0.15s, transform 0.1s;
+}
+.drop-btn:hover { background:var(--orange-d); transform:translateY(-1px); }
+#file-input { display:none; }
+
+/* ── APP SHELL ─────────────────────────────────────── */
+#app { display:none; }
+#app.visible { display:block; }
+
+/* ── HEADER ────────────────────────────────────────── */
+.header {
+  background:var(--white); border-bottom:3px solid var(--orange);
+  position:sticky; top:0; z-index:100; padding:0 28px;
+  display:flex; align-items:center; gap:16px; height:56px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+.header-logo { display:flex; align-items:center; gap:10px; }
+.header-logo-box {
+  width:36px; height:36px; background:var(--orange); border-radius:5px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--display); font-size:15px; font-weight:800; color:#fff;
+}
+.header-brand { font-family:var(--display); font-size:18px; font-weight:800; color:var(--text); }
+.header-brand span { color:var(--orange); }
+.header-divider { width:1px; height:28px; background:var(--border); margin:0 4px; }
+.header-meta { font-size:12px; color:var(--muted); font-family:var(--mono); }
+.header-meta strong { color:var(--text2); }
+.header-nav { margin-left:auto; display:flex; gap:2px; }
+.nav-btn {
+  padding:6px 16px; border:none; background:transparent; border-radius:4px;
+  font-family:var(--display); font-size:13px; font-weight:700; letter-spacing:0.3px;
+  text-transform:uppercase; color:var(--muted); cursor:pointer; transition:all 0.15s;
+}
+.nav-btn:hover { color:var(--orange); background:var(--orange-glow); }
+.nav-btn.active { color:var(--orange); background:var(--orange-dim); }
+
+/* ── LAYOUT ────────────────────────────────────────── */
+.page { display:none; padding:24px 28px; max-width:1600px; margin:0 auto; }
+.page.active { display:block; }
+
+/* ── SECTION LABEL ─────────────────────────────────── */
+.section-label {
+  font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:14px; margin-top:24px;
+  display:flex; align-items:center; gap:10px;
+}
+.section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+.section-label:first-child { margin-top:0; }
+
+/* ── KPI CARDS ─────────────────────────────────────── */
+.kpi-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+.kpi {
+  background:var(--white); border:1px solid var(--border); border-radius:8px;
+  padding:18px 16px; position:relative; overflow:hidden;
+  transition:box-shadow 0.15s, transform 0.15s;
+}
+.kpi:hover { box-shadow:0 4px 16px rgba(0,0,0,0.08); transform:translateY(-1px); }
+.kpi-bar { position:absolute; top:0; left:0; right:0; height:3px; }
+.kpi-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.kpi-value { font-family:var(--display); font-size:34px; font-weight:800; line-height:1; }
+.kpi-sub { font-size:11px; color:var(--muted); margin-top:5px; }
+
+/* ── HEALTH SCORE ──────────────────────────────────── */
+.health-grid { display:grid; grid-template-columns:220px 1fr; gap:16px; margin-bottom:20px; }
+.health-card {
+  background:var(--white); border:1px solid var(--border); border-radius:8px;
+  padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; position:relative; overflow:hidden;
+}
+.health-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--health-color, var(--orange)); }
+.health-ring-wrap { position:relative; width:130px; height:130px; }
+.health-ring-wrap svg { transform:rotate(-90deg); }
+.ring-bg  { fill:none; stroke:var(--bg2); stroke-width:10; }
+.ring-fg  { fill:none; stroke-width:10; stroke-linecap:round; transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1); }
+.health-num {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  font-family:var(--display); font-size:36px; font-weight:800; line-height:1;
+}
+.health-num small { font-family:var(--body); font-size:11px; color:var(--muted); font-weight:400; }
+.health-grade { font-family:var(--display); font-size:20px; font-weight:800; letter-spacing:-0.3px; }
+.health-label { font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
+
+/* ── CHART CARDS ───────────────────────────────────── */
+.chart-row { display:grid; gap:16px; margin-bottom:16px; }
+.chart-row-2 { grid-template-columns:1fr 1fr; }
+.chart-row-3 { grid-template-columns:1fr 1fr 1fr; }
+.chart-card {
+  background:var(--white); border:1px solid var(--border); border-radius:8px; padding:20px;
+}
+.chart-title { font-family:var(--display); font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+
+/* ── DONUT ─────────────────────────────────────────── */
+.donut-wrap { display:flex; align-items:center; gap:20px; }
+.donut-legend { flex:1; display:flex; flex-direction:column; gap:9px; }
+.legend-row { display:flex; align-items:center; gap:8px; font-size:13px; }
+.legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.legend-name { flex:1; color:var(--text2); }
+.legend-val { font-weight:700; font-family:var(--mono); font-size:12px; }
+.legend-pct { font-size:11px; color:var(--muted); }
+
+/* ── MX VERSION BAR CHART ──────────────────────────── */
+.mx-version-chart { display:flex; flex-direction:column; gap:10px; }
+.mx-ver-row { display:grid; grid-template-columns:90px 1fr 80px; align-items:center; gap:10px; }
+.mx-ver-label { font-family:var(--mono); font-size:12px; color:var(--text2); font-weight:500; text-align:right; }
+.mx-ver-track { height:22px; background:var(--bg2); border-radius:4px; overflow:hidden; position:relative; }
+.mx-ver-fill {
+  height:100%; border-radius:4px; transition:width 0.9s cubic-bezier(.4,0,.2,1);
+  display:flex; align-items:center; padding-left:8px; min-width:2px;
+}
+.mx-ver-apps { font-size:11px; color:var(--muted); }
+.mx-ver-apps strong { color:var(--text); font-weight:700; }
+
+/* ── HORIZONTAL BAR (generic) ──────────────────────── */
+.bar-list { display:flex; flex-direction:column; gap:8px; }
+.bar-row { display:flex; align-items:center; gap:10px; }
+.bar-name { font-size:12px; color:var(--text2); width:160px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex-shrink:0; }
+.bar-name.short { width:120px; }
+.bar-track { flex:1; height:8px; background:var(--bg2); border-radius:4px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:4px; transition:width 0.8s cubic-bezier(.4,0,.2,1); }
+.bar-val { font-size:12px; font-weight:700; width:32px; text-align:right; flex-shrink:0; font-family:var(--mono); }
+
+/* ── APP TABLE ─────────────────────────────────────── */
+.table-wrap { background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.table-toolbar {
+  padding:12px 16px; display:flex; gap:10px; align-items:center;
+  border-bottom:1px solid var(--border); background:var(--bg);
+}
+.search-inp {
+  background:var(--white); border:1px solid var(--border); border-radius:5px;
+  padding:7px 12px; color:var(--text); font-family:var(--mono); font-size:12px;
+  outline:none; width:220px; transition:border-color 0.15s;
+}
+.search-inp:focus { border-color:var(--orange); }
+.search-inp::placeholder { color:var(--faint); }
+.chip {
+  padding:5px 12px; border:1px solid var(--border); border-radius:4px; background:var(--white);
+  font-family:var(--display); font-size:12px; font-weight:700; letter-spacing:0.3px;
+  text-transform:uppercase; color:var(--muted); cursor:pointer; transition:all 0.15s;
+}
+.chip:hover { border-color:var(--orange); color:var(--orange); }
+.chip.on { background:var(--orange-dim); border-color:var(--orange); color:var(--orange); }
+.row-count { margin-left:auto; font-size:12px; color:var(--muted); font-family:var(--mono); }
+
+table { width:100%; border-collapse:collapse; }
+thead th {
+  background:var(--bg); padding:10px 14px; text-align:left;
+  font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border);
+  white-space:nowrap; cursor:pointer; user-select:none;
+}
+thead th:hover { color:var(--orange); }
+thead th.sorted { color:var(--orange); }
+tbody tr { border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.1s; }
+tbody tr:last-child { border-bottom:none; }
+tbody tr:hover { background:#FFF8F4; }
+td { padding:10px 14px; vertical-align:middle; font-size:13px; }
+.no-rows { text-align:center; padding:40px; color:var(--muted); font-size:13px; }
+
+/* ── BADGES ────────────────────────────────────────── */
+.badge {
+  display:inline-flex; align-items:center;
+  font-family:var(--display); font-size:11px; font-weight:700;
+  padding:3px 8px; border-radius:4px; letter-spacing:0.4px; text-transform:uppercase;
+}
+.badge-platform  { background:var(--green-dim);  color:var(--green); }
+.badge-partner   { background:var(--blue-dim);   color:var(--blue); }
+.badge-community { background:var(--orange-dim); color:var(--orange-d); }
+.badge-unknown   { background:var(--bg2);         color:var(--muted); }
+.risk-critical   { background:rgba(192,57,43,0.12);  color:var(--red); }
+.risk-high       { background:rgba(230,100,23,0.12); color:#C05000; }
+.risk-medium     { background:var(--orange-dim);     color:var(--orange-d); }
+.risk-low        { background:var(--green-dim);      color:var(--green); }
+.upd-yes { color:var(--orange-d); font-weight:700; }
+.upd-no  { color:var(--green); }
+.compat-ok   { color:var(--green); }
+.compat-warn { color:var(--red); font-weight:600; }
+
+/* ── MX TAG ────────────────────────────────────────── */
+.mx-tag {
+  display:inline-block; background:var(--bg2); border:1px solid var(--border);
+  border-radius:4px; padding:2px 7px; font-family:var(--mono); font-size:11px; color:var(--text2);
+}
+
+/* ── DRAWER ────────────────────────────────────────── */
+#drawer {
+  position:fixed; right:-500px; top:56px; bottom:0; width:500px;
+  background:var(--white); border-left:1px solid var(--border);
+  z-index:200; transition:right 0.3s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto; padding:24px;
+  box-shadow:-4px 0 20px rgba(0,0,0,0.06);
+}
+#drawer.open { right:0; }
+.drawer-close {
+  position:absolute; top:16px; right:16px;
+  background:var(--bg); border:1px solid var(--border); border-radius:4px;
+  color:var(--muted); padding:5px 12px; font-family:var(--display); font-size:12px;
+  font-weight:700; text-transform:uppercase; cursor:pointer; transition:all 0.15s;
+}
+.drawer-close:hover { border-color:var(--orange); color:var(--orange); }
+.drawer-title { font-family:var(--display); font-size:22px; font-weight:800; margin-bottom:4px; padding-right:60px; }
+.drawer-sub { font-size:12px; color:var(--muted); margin-bottom:20px; font-family:var(--mono); }
+.drawer-section { margin-top:20px; }
+.drawer-section-title {
+  font-family:var(--display); font-size:11px; font-weight:700; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:10px;
+  padding-bottom:6px; border-bottom:2px solid var(--orange-dim);
+}
+.drawer-row { display:flex; justify-content:space-between; padding:7px 0; border-bottom:1px solid var(--bg2); font-size:13px; }
+.drawer-row:last-child { border:none; }
+.dr-key { color:var(--muted); }
+.dr-val { font-weight:600; text-align:right; max-width:280px; word-break:break-word; }
+.dep-chip {
+  display:inline-flex; align-items:center; gap:6px; background:var(--bg);
+  border:1px solid var(--border); border-radius:5px; padding:8px 12px;
+  margin-bottom:6px; width:100%; font-size:12px; text-decoration:none; color:var(--text);
+  transition:border-color 0.15s;
+}
+.dep-chip:hover { border-color:var(--orange); }
+.dep-chip-name { flex:1; font-weight:600; }
+.dep-chip-ver { color:var(--muted); font-family:var(--mono); font-size:11px; }
+.dep-chip-badge { font-family:var(--display); font-size:10px; font-weight:700; }
+
+/* ── SCROLLBAR ─────────────────────────────────────── */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--border2); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:var(--orange); }
+
+/* ── ANIMATIONS ────────────────────────────────────── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.fade-up { animation:fadeUp 0.35s ease both; }
+.fade-up:nth-child(2){animation-delay:.04s} .fade-up:nth-child(3){animation-delay:.08s}
+.fade-up:nth-child(4){animation-delay:.12s} .fade-up:nth-child(5){animation-delay:.16s}
+.fade-up:nth-child(6){animation-delay:.20s} .fade-up:nth-child(7){animation-delay:.24s}
+.fade-up:nth-child(8){animation-delay:.28s}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!-- DROP ZONE -->
+<div id="dropzone">
+  <div class="drop-logo">
+    <div class="drop-logo-box">P</div>
+    <div class="drop-logo-name">Post<span>NL</span> · Mendix Intelligence</div>
+  </div>
+  <div class="drop-ring">📊</div>
+  <div class="drop-title">Drop your report.json here</div>
+  <div class="drop-sub">
+    Generate with: <code>--format json --output report.json</code>
+  </div>
+  <button class="drop-btn" onclick="document.getElementById('file-input').click()">Choose File</button>
+  <input type="file" id="file-input" accept=".json">
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="header-logo-box">P</div>
+      <div class="header-brand">Post<span>NL</span> · Mendix Intelligence</div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-meta" id="hdr-meta">—</div>
+    <nav class="header-nav">
+      <button class="nav-btn active" onclick="nav('overview',this)">Overview</button>
+      <button class="nav-btn" onclick="nav('apps',this)">Apps</button>
+      <button class="nav-btn" onclick="nav('deps',this)">Dependencies</button>
+      <div style="width:1px;height:24px;background:var(--border);margin:0 6px"></div>
+      <button class="nav-btn" onclick="exportExcel()" style="color:var(--green);border:1px solid var(--green);border-radius:4px;padding:5px 14px" title="Export application overview to Excel">⬇ Excel</button>
+    </nav>
+  </div>
+
+  <!-- PAGE: OVERVIEW -->
+  <div class="page active" id="page-overview">
+
+    <div class="section-label">Portfolio Health</div>
+    <div class="health-grid">
+      <div class="health-card" id="health-card">
+        <div class="health-ring-wrap">
+          <svg viewBox="0 0 130 130" width="130" height="130">
+            <circle class="ring-bg" cx="65" cy="65" r="56"/>
+            <circle class="ring-fg" id="ring-fg" cx="65" cy="65" r="56"
+              stroke-dasharray="351.9" stroke-dashoffset="351.9"/>
+          </svg>
+          <div class="health-num">
+            <span id="health-num">—</span>
+            <small>/100</small>
+          </div>
+        </div>
+        <div class="health-label">Health Score</div>
+        <div class="health-grade" id="health-grade">—</div>
+      </div>
+      <div class="kpi-row" id="kpi-row"></div>
+    </div>
+
+    <div class="section-label">Dependency Breakdown</div>
+    <div class="chart-row chart-row-2">
+      <div class="chart-card">
+        <div class="chart-title">Support Tier Distribution</div>
+        <div class="donut-wrap">
+          <svg id="donut-svg" viewBox="0 0 110 110" width="110" height="110" style="flex-shrink:0"></svg>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Mendix Version Spread — Apps per Major.Minor Version</div>
+        <div class="mx-version-chart" id="mx-version-chart"></div>
+      </div>
+    </div>
+
+    <div class="section-label">Update Backlog &amp; Risk</div>
+    <div class="chart-row chart-row-2">
+      <div class="chart-card">
+        <div class="chart-title">Top Apps by Updates Needed</div>
+        <div class="bar-list" id="bar-updates"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Top Apps by Compatibility Warnings</div>
+        <div class="bar-list" id="bar-compat"></div>
+      </div>
+    </div>
+
+    <div class="section-label">Most Used Marketplace Modules</div>
+    <div class="chart-row chart-row-2">
+      <div class="chart-card">
+        <div class="chart-title">Top Shared Modules (most apps)</div>
+        <div class="bar-list" id="bar-shared"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Publishers</div>
+        <div class="bar-list" id="bar-publishers"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAGE: APPS -->
+  <div class="page" id="page-apps">
+    <div class="section-label">App Risk Ranking</div>
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <input class="search-inp" type="text" id="app-search" placeholder="Search apps…" oninput="renderApps()">
+        <button class="chip" id="fc-upd"    onclick="toggleFilter(appFilters,'hasUpdates','fc-upd',renderApps)">⬆ Updates</button>
+        <button class="chip" id="fc-compat" onclick="toggleFilter(appFilters,'hasCompat','fc-compat',renderApps)">⚠ Compat</button>
+        <button class="chip" id="fc-notfound" onclick="toggleFilter(appFilters,'hasNotFound','fc-notfound',renderApps)">? Not Found</button>
+        <span class="row-count" id="app-count"></span>
+      </div>
+      <table>
+        <thead><tr>
+          <th onclick="sortTable(appSort,'appName',renderApps,this)">App</th>
+          <th onclick="sortTable(appSort,'mxMajor',renderApps,this)">Mx Version</th>
+          <th onclick="sortTable(appSort,'totalDeps',renderApps,this)">Modules</th>
+          <th onclick="sortTable(appSort,'updates',renderApps,this)">Updates</th>
+          <th onclick="sortTable(appSort,'compats',renderApps,this)">Compat ⚠</th>
+          <th onclick="sortTable(appSort,'notFound',renderApps,this)">Not Found</th>
+          <th onclick="sortTable(appSort,'riskScore',renderApps,this)">Risk</th>
+        </tr></thead>
+        <tbody id="app-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PAGE: DEPS -->
+  <div class="page" id="page-deps">
+    <div class="section-label">All Marketplace Modules</div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:12px">
+      <strong style="color:var(--text2)">Best for Mx</strong> = highest module version compatible with the app's Mendix runtime. 
+      <strong style="color:var(--text2)">Latest</strong> = absolute latest on Marketplace (may require a higher Mx version). 
+      <span style="color:var(--muted)">*</span> = a newer version exists but requires upgrading Mendix first.
+    </p>
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <input class="search-inp" type="text" id="dep-search" placeholder="Search modules…" oninput="renderDeps()">
+        <button class="chip" id="df-upd"     onclick="toggleFilter(depFilters,'update','df-upd',renderDeps)">⬆ Updates</button>
+        <button class="chip" id="df-compat"  onclick="toggleFilter(depFilters,'compat','df-compat',renderDeps)">⚠ Compat</button>
+        <button class="chip" id="df-plat"    onclick="toggleFilter(depFilters,'platform','df-plat',renderDeps)">Platform</button>
+        <button class="chip" id="df-comm"    onclick="toggleFilter(depFilters,'community','df-comm',renderDeps)">Community</button>
+        <button class="chip" id="df-notfound" onclick="toggleFilter(depFilters,'notfound','df-notfound',renderDeps)">? Not Found</button>
+        <span class="row-count" id="dep-count"></span>
+      </div>
+      <table>
+        <thead><tr>
+          <th onclick="sortTable(depSort,'name',renderDeps,this)">Module</th>
+          <th onclick="sortTable(depSort,'latestVersionNumber',renderDeps,this)" title="Absolute latest version on Marketplace">Latest</th>
+          <th onclick="sortTable(depSort,'updateAvailable',renderDeps,this)">Update?</th>
+          <th onclick="sortTable(depSort,'mxCompatible',renderDeps,this)">Latest Compat</th>
+          <th onclick="sortTable(depSort,'supportCategory',renderDeps,this)">Support</th>
+          <th onclick="sortTable(depSort,'publisher',renderDeps,this)">Publisher</th>
+          <th onclick="sortTable(depSort,'appCount',renderDeps,this)">Apps</th>
+        </tr></thead>
+        <tbody id="dep-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- DRAWER -->
+<div id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">✕ Close</button>
+  <div id="drawer-content"></div>
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────
+let R = null;       // full report
+let appRows = [];   // enriched per-app rows
+let flatDeps = [];  // deduplicated dep list with appNames[]
+
+const appFilters = new Set();
+const depFilters = new Set();
+let appSort = { key:'riskScore', asc:false };
+let depSort = { key:'name', asc:true };
+
+// ── DROP ─────────────────────────────────────────────
+const dz = document.getElementById('dropzone');
+dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag'); });
+dz.addEventListener('dragleave', () => dz.classList.remove('drag'));
+dz.addEventListener('drop', e => { e.preventDefault(); dz.classList.remove('drag'); load(e.dataTransfer.files[0]); });
+document.getElementById('file-input').addEventListener('change', e => load(e.target.files[0]));
+dz.addEventListener('click', e => { if(e.target===dz) document.getElementById('file-input').click(); });
+
+function load(file) {
+  if (!file) return;
+  const r = new FileReader();
+  r.onload = e => { try { init(JSON.parse(e.target.result)); } catch(err) { alert('Invalid JSON: '+err.message); } };
+  r.readAsText(file);
+}
+
+// ── INIT ─────────────────────────────────────────────
+function init(data) {
+  R = data;
+  dz.classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+
+  const s = R.summary;
+  document.getElementById('hdr-meta').innerHTML =
+    `<strong>${s.appsScanned}</strong> apps scanned &nbsp;·&nbsp; `+
+    `<strong>${s.appsSkipped}</strong> skipped &nbsp;·&nbsp; `+
+    `Scanned <strong>${new Date(R.scannedAt).toLocaleDateString('nl-NL')}</strong>`;
+
+  buildAppRows();
+  buildFlatDeps();
+  renderOverview();
+  renderApps();
+  renderDeps();
+}
+
+// ── BUILD DATA ────────────────────────────────────────
+function buildAppRows() {
+  appRows = R.apps
+    .filter(a => a.scanStatus === 'ok')
+    .map(a => {
+      const deps    = a.deps || [];
+      const found   = deps.filter(d => d.marketplace?.found);
+      const updates = found.filter(d => d.marketplace?.updateAvailable).length;
+      const compats = found.filter(d => d.marketplace?.mxCompatible === false).length;
+      const notFound= deps.filter(d => !d.marketplace?.found).length;
+      const riskScore = updates*3 + compats*5 + notFound*0.5;
+      const mxMajor = (a.mxVersion||'').split('.').slice(0,2).join('.');
+      return { ...a, totalDeps:deps.length, updates, compats, notFound, riskScore, mxMajor,
+        hasUpdates:updates>0, hasCompat:compats>0, hasNotFound:notFound>0 };
+    });
+}
+
+function semverCmp(a, b) {
+  const clean = s => s.replace(/[^\d.]/g,'').split('.').map(Number);
+  const pa = clean(String(a||'0')), pb = clean(String(b||'0'));
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+    const d = (pa[i]||0) - (pb[i]||0);
+    if (d !== 0) return d > 0 ? 1 : -1;
+  }
+  return 0;
+}
+
+function buildFlatDeps() {
+  const map = new Map();
+  for (const app of R.apps) {
+    if (app.scanStatus !== 'ok') continue;
+    for (const dep of (app.deps||[])) {
+      const key = dep.packageId ?? dep.name;
+      if (!map.has(key)) {
+        map.set(key, {
+          ...dep.marketplace,
+          found:                 dep.marketplace?.found ?? false,
+          name:                  dep.marketplace?.name || dep.name,
+          version:               dep.version,
+          packageId:             dep.packageId,
+          bestCompatibleVersion: dep.marketplace?.bestCompatibleVersion ?? null,
+          bestCompatibleMinMx:   dep.marketplace?.bestCompatibleMinMx ?? null,
+          latestIsNewer:         dep.marketplace?.latestIsNewer ?? false,
+          appNames:              [],
+          appCount:              0,
+        });
+      }
+      const e = map.get(key);
+      e.appNames.push(app.appName);
+      e.appCount++;
+      if (dep.marketplace?.updateAvailable) e.updateAvailable = true;
+      if (dep.marketplace?.mxCompatible === false) e.mxCompatible = false;
+      if (dep.marketplace?.latestIsNewer) e.latestIsNewer = true;
+      // Keep the LOWEST bestCompatibleVersion across apps (most conservative recommendation)
+      if (dep.marketplace?.bestCompatibleVersion) {
+        if (!e.bestCompatibleVersion ||
+            semverCmp(dep.marketplace.bestCompatibleVersion, e.bestCompatibleVersion) < 0) {
+          e.bestCompatibleVersion  = dep.marketplace.bestCompatibleVersion;
+          e.bestCompatibleMinMx    = dep.marketplace.bestCompatibleMinMx;
+        }
+      }
+    }
+  }
+  flatDeps = [...map.values()].sort((a,b) => a.name.localeCompare(b.name));
+}
+
+// ── HEALTH SCORE ──────────────────────────────────────
+function calcHealth() {
+  const s = R.summary;
+  const total = s.totalModules;
+  if (!total) return 100;
+  // Penalty: compat warnings hurt most (they block upgrades), then updates, then not found
+  const penalty =
+    (s.compatWarns / total) * 40 +
+    (s.updatesAvail / total) * 35 +
+    (s.bySupport.NotFound / total) * 15 +
+    ((s.bySupport.Community||0) / total) * 10;
+  return Math.max(0, Math.round(100 - penalty));
+}
+
+// ── OVERVIEW ─────────────────────────────────────────
+function renderOverview() {
+  const s = R.summary;
+
+  // Health ring
+  const score = calcHealth();
+  const color = score>=80?'#1A8040':score>=60?'#FF6200':score>=40?'#C05000':'#C0392B';
+  const grade = score>=80?'Healthy':score>=60?'Moderate':score>=40?'At Risk':'Critical';
+  const circ  = 351.9;
+  const offset= circ - (score/100)*circ;
+  const card  = document.getElementById('health-card');
+  card.style.setProperty('--health-color', color);
+  const numEl = document.getElementById('health-num');
+  numEl.textContent = score;
+  numEl.style.color = color;
+  const gradeEl = document.getElementById('health-grade');
+  gradeEl.textContent = grade;
+  gradeEl.style.color = color;
+  setTimeout(() => {
+    const fg = document.getElementById('ring-fg');
+    fg.style.stroke = color;
+    fg.style.strokeDashoffset = offset;
+  }, 80);
+
+  // KPIs — use exact summary field names from JSON
+  const kpis = [
+    { label:'Apps Scanned',      value:s.appsScanned,            sub:`${s.appsSkipped} skipped`,       color:'#1A5EAF' },
+    { label:'Total Modules',     value:s.totalModules,           sub:'marketplace deps',                color:'#444' },
+    { label:'Updates Available', value:s.updatesAvail,           sub:'behind latest version',          color:'#FF6200' },
+    { label:'Compat Warnings',   value:s.compatWarns,            sub:'Mx version conflict',            color:'#C0392B' },
+    { label:'Platform Support',  value:s.bySupport.Platform||0,  sub:'Mendix backed',                  color:'#1A8040' },
+    { label:'Community',         value:s.bySupport.Community||0, sub:'maintenance risk',               color:'#C05000' },
+    { label:'Partner',           value:s.bySupport.Partner||0,   sub:'vendor backed',                  color:'#1A5EAF' },
+    { label:'Not Found',         value:s.bySupport.NotFound||0,  sub:'not on Marketplace',             color:'#888' },
+  ];
+  document.getElementById('kpi-row').innerHTML = kpis.map(k => `
+    <div class="kpi fade-up">
+      <div class="kpi-bar" style="background:${k.color}"></div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-value" style="color:${k.color}">${k.value ?? 0}</div>
+      <div class="kpi-sub">${k.sub}</div>
+    </div>`).join('');
+
+  // Donut — support tier
+  const total = (s.bySupport.Platform||0)+(s.bySupport.Partner||0)+(s.bySupport.Community||0)+(s.bySupport.NotFound||0)||1;
+  const tiers = [
+    { label:'Platform',  count:s.bySupport.Platform||0,  color:'#1A8040' },
+    { label:'Community', count:s.bySupport.Community||0, color:'#FF6200' },
+    { label:'Partner',   count:s.bySupport.Partner||0,   color:'#1A5EAF' },
+    { label:'Not Found', count:s.bySupport.NotFound||0,  color:'#BBBBBB' },
+  ];
+  renderDonut('donut-svg','donut-legend', tiers, total);
+
+  // Mx version chart — group by Major.Minor, sorted descending
+  const mxMap = {};
+  for (const a of R.apps) {
+    if (a.scanStatus !== 'ok' || !a.mxVersion) continue;
+    const key = a.mxVersion.split('.').slice(0,2).join('.');
+    mxMap[key] = (mxMap[key]||0)+1;
+  }
+  const mxEntries = Object.entries(mxMap).sort((a,b) => {
+    const [ma,mia] = a[0].split('.').map(Number);
+    const [mb,mib] = b[0].split('.').map(Number);
+    return mb!==ma ? mb-ma : mib-mia;
+  });
+  const mxMax = Math.max(...mxEntries.map(e=>e[1]),1);
+  // Color: green for latest (10+), orange for mid, red for old (<9)
+  function mxColor(ver) {
+    const major = parseInt(ver.split('.')[0]);
+    if (major >= 10) return '#1A8040';
+    if (major >= 9)  return '#FF6200';
+    return '#C0392B';
+  }
+  document.getElementById('mx-version-chart').innerHTML = mxEntries.map(([ver,cnt]) => `
+    <div class="mx-ver-row">
+      <div class="mx-ver-label">${esc(ver)}</div>
+      <div class="mx-ver-track">
+        <div class="mx-ver-fill" style="width:${(cnt/mxMax)*100}%;background:${mxColor(ver)}">
+        </div>
+      </div>
+      <div class="mx-ver-apps"><strong>${cnt}</strong> app${cnt>1?'s':''}</div>
+    </div>`).join('');
+
+  // Bar: top apps by updates
+  const byUpd = [...appRows].sort((a,b)=>b.updates-a.updates).slice(0,8);
+  const maxU  = Math.max(...byUpd.map(a=>a.updates),1);
+  document.getElementById('bar-updates').innerHTML = byUpd.map(a=>`
+    <div class="bar-row">
+      <div class="bar-name" title="${esc(a.appName)}">${esc(shortName(a.appName))}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(a.updates/maxU)*100}%;background:#FF6200"></div></div>
+      <div class="bar-val" style="color:#FF6200">${a.updates}</div>
+    </div>`).join('') || '<div style="color:var(--muted);font-size:12px">No updates needed 🎉</div>';
+
+  // Bar: top apps by compat warnings
+  const byComp = [...appRows].sort((a,b)=>b.compats-a.compats).slice(0,8);
+  const maxC   = Math.max(...byComp.map(a=>a.compats),1);
+  document.getElementById('bar-compat').innerHTML = byComp.map(a=>`
+    <div class="bar-row">
+      <div class="bar-name" title="${esc(a.appName)}">${esc(shortName(a.appName))}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(a.compats/maxC)*100}%;background:#C0392B"></div></div>
+      <div class="bar-val" style="color:#C0392B">${a.compats}</div>
+    </div>`).join('');
+
+  // Bar: most shared modules
+  const sorted = [...flatDeps].sort((a,b)=>b.appCount-a.appCount).slice(0,8);
+  const maxS   = Math.max(...sorted.map(d=>d.appCount),1);
+  document.getElementById('bar-shared').innerHTML = sorted.map(d=>`
+    <div class="bar-row">
+      <div class="bar-name" title="${esc(d.name)}">${esc(d.name)}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(d.appCount/maxS)*100}%;background:#1A5EAF"></div></div>
+      <div class="bar-val" style="color:#1A5EAF">${d.appCount}</div>
+    </div>`).join('');
+
+  // Bar: publishers
+  const pubMap = {};
+  for (const d of flatDeps) { const p=d.publisher||'Unknown'; pubMap[p]=(pubMap[p]||0)+d.appCount; }
+  const pubs  = Object.entries(pubMap).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const maxP  = Math.max(...pubs.map(p=>p[1]),1);
+  document.getElementById('bar-publishers').innerHTML = pubs.map(([pub,cnt])=>`
+    <div class="bar-row">
+      <div class="bar-name">${esc(pub)}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(cnt/maxP)*100}%;background:#444"></div></div>
+      <div class="bar-val">${cnt}</div>
+    </div>`).join('');
+}
+
+function renderDonut(svgId, legendId, items, total) {
+  const cx=55,cy=55,r=42,sw=14,circ=2*Math.PI*r;
+  let off=0;
+  const paths = items.map(item=>{
+    const pct=item.count/total, dash=pct*circ, gap=circ-dash;
+    const p=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none"
+      stroke="${item.color}" stroke-width="${sw}"
+      stroke-dasharray="${dash} ${gap}" stroke-dashoffset="${-off}"
+      transform="rotate(-90 ${cx} ${cy})" style="transition:stroke-dashoffset .8s ease"/>`;
+    off+=dash; return p;
+  });
+  document.getElementById(svgId).innerHTML = paths.join('');
+  document.getElementById(legendId).innerHTML = items.map(i=>`
+    <div class="legend-row">
+      <div class="legend-dot" style="background:${i.color}"></div>
+      <div class="legend-name">${i.label}</div>
+      <div class="legend-val">${i.count}</div>
+      <div class="legend-pct">${Math.round(i.count/total*100)}%</div>
+    </div>`).join('');
+}
+
+// ── APPS TABLE ────────────────────────────────────────
+function renderApps() {
+  const q = document.getElementById('app-search').value.toLowerCase();
+  let rows = appRows.filter(a => {
+    if (q && !a.appName.toLowerCase().includes(q)) return false;
+    if (appFilters.has('hasUpdates')  && !a.hasUpdates)  return false;
+    if (appFilters.has('hasCompat')   && !a.hasCompat)   return false;
+    if (appFilters.has('hasNotFound') && !a.hasNotFound) return false;
+    return true;
+  });
+  const k = appSort.key, asc = appSort.asc;
+  rows.sort((a,b)=>{ const av=a[k]??0,bv=b[k]??0; return asc?(av>bv?1:av<bv?-1:0):(bv>av?1:bv<av?-1:0); });
+  document.getElementById('app-count').textContent = `${rows.length} apps`;
+  const tbody = document.getElementById('app-tbody');
+  if (!rows.length) { tbody.innerHTML=`<tr><td colspan="7" class="no-rows">No apps match</td></tr>`; return; }
+  tbody.innerHTML = rows.map(a => {
+    const risk = riskLevel(a.riskScore);
+    return `<tr onclick="showAppDrawer('${esc(a.appId)}')">
+      <td><strong>${esc(a.appName)}</strong><br><span style="color:var(--muted);font-size:11px;font-family:var(--mono)">${esc(a.appSubdomain)}.mendixcloud.com</span></td>
+      <td><span class="mx-tag">${esc(a.mxMajor)}</span></td>
+      <td style="font-family:var(--mono)">${a.totalDeps}</td>
+      <td class="${a.updates>0?'upd-yes':'upd-no'}">${a.updates>0?'↑ '+a.updates:'✓ 0'}</td>
+      <td style="color:${a.compats>0?'var(--red)':'var(--muted)'}">${a.compats>0?'⚠ '+a.compats:'—'}</td>
+      <td style="color:${a.notFound>0?'var(--muted)':'var(--muted)'}">${a.notFound||'—'}</td>
+      <td><span class="badge ${risk.cls}">${risk.label}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── DEPS TABLE ────────────────────────────────────────
+function renderDeps() {
+  const q = document.getElementById('dep-search').value.toLowerCase();
+  let rows = flatDeps.filter(d => {
+    if (q && !d.name.toLowerCase().includes(q) && !(d.publisher||'').toLowerCase().includes(q)) return false;
+    if (depFilters.has('update')    && !d.updateAvailable)  return false;
+    if (depFilters.has('compat')    && d.mxCompatible !== false) return false;
+    if (depFilters.has('platform')  && d.supportCategory !== 'Platform')  return false;
+    if (depFilters.has('community') && d.supportCategory !== 'Community') return false;
+    if (depFilters.has('notfound')  && d.found !== false) return false;
+    return true;
+  });
+  const k=depSort.key, asc=depSort.asc;
+  rows.sort((a,b)=>{ let av=a[k]??'',bv=b[k]??''; if(typeof av==='boolean'){av=av?0:1;bv=bv?0:1;} else if(typeof av==='string'){av=av.toLowerCase();bv=bv.toLowerCase();} return asc?(av>bv?1:av<bv?-1:0):(bv>av?1:bv<av?-1:0); });
+  document.getElementById('dep-count').textContent = `${rows.length} of ${flatDeps.length}`;
+  const tbody = document.getElementById('dep-tbody');
+  if (!rows.length) { tbody.innerHTML=`<tr><td colspan="7" class="no-rows">No modules match</td></tr>`; return; }
+  tbody.innerHTML = rows.map(d => {
+    const sc = d.supportCategory||'Unknown';
+    const cls = sc==='Platform'?'badge-platform':sc==='Partner'?'badge-partner':sc==='Community'?'badge-community':'badge-unknown';
+    const nameCell = d.url?`<a href="${esc(d.url)}" target="_blank" style="color:var(--orange);text-decoration:none;font-weight:600">${esc(d.name)}</a>`:esc(d.name);
+    const compat = d.mxCompatible===false?`<span class="compat-warn">⚠</span>`:d.mxCompatible===true?`<span class="compat-ok">✓</span>`:'—';
+    if (d.found === false) {
+      return `<tr onclick="showDepDrawer(${d.packageId??JSON.stringify(d.name)})" style="opacity:0.6">
+        <td><span style="color:var(--muted)">${esc(d.name)}</span></td>
+        <td style="color:var(--faint);font-size:12px">—</td>
+        <td><span style="color:var(--faint);font-size:12px">—</span></td>
+        <td>—</td>
+        <td><span class="badge badge-unknown">Not Found</span></td>
+        <td style="color:var(--faint);font-size:12px">—</td>
+        <td style="font-size:12px;color:var(--muted);font-family:var(--mono)">${d.appCount}</td>
+      </tr>`;
+    }
+    return `<tr onclick="showDepDrawer(${d.packageId??JSON.stringify(d.name)})">
+      <td>${nameCell}</td>
+      <td style="font-family:var(--mono);font-size:12px;color:var(--muted)">${esc(d.latestVersionNumber||'n/a')}</td>
+      <td>${d.updateAvailable?'<span class="upd-yes">↑ YES</span>':'<span class="upd-no">✓</span>'}</td>
+      <td>${compat}</td>
+      <td><span class="badge ${cls}">${sc}</span></td>
+      <td style="font-size:12px;color:var(--text2)">${esc(d.publisher||'—')}</td>
+      <td style="font-size:12px;color:var(--muted);font-family:var(--mono)">${d.appCount}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── DRAWERS ───────────────────────────────────────────
+function showAppDrawer(appId) {
+  const app = R.apps.find(a=>a.appId===appId);
+  const row = appRows.find(a=>a.appId===appId);
+  if (!app) return;
+  const deps = app.deps||[];
+  const updates  = deps.filter(d=>d.marketplace?.updateAvailable);
+  const warns    = deps.filter(d=>d.marketplace?.mxCompatible===false);
+  const notFound = deps.filter(d=>!d.marketplace?.found);
+  const risk = row ? riskLevel(row.riskScore) : {cls:'risk-low',label:'Low'};
+  document.getElementById('drawer-content').innerHTML = `
+    <div class="drawer-title">${esc(app.appName)}</div>
+    <div class="drawer-sub">${esc(app.appSubdomain)}.mendixcloud.com · ${esc(app.repoType)} / ${esc(app.branch)}</div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Overview</div>
+      <div class="drawer-row"><span class="dr-key">Mendix Version</span><span class="dr-val"><span class="mx-tag">${esc(app.mxVersion)}</span></span></div>
+      <div class="drawer-row"><span class="dr-key">Model Version</span><span class="dr-val">${esc(app.modelVersion)}</span></div>
+      <div class="drawer-row"><span class="dr-key">Risk Level</span><span class="dr-val"><span class="badge ${risk.cls}">${risk.label}</span></span></div>
+      <div class="drawer-row"><span class="dr-key">Marketplace Modules</span><span class="dr-val">${deps.length}</span></div>
+      <div class="drawer-row"><span class="dr-key">Updates Available</span><span class="dr-val" style="color:${updates.length?'var(--orange)':'var(--green)'}">${updates.length}</span></div>
+      <div class="drawer-row"><span class="dr-key">Compat Warnings</span><span class="dr-val" style="color:${warns.length?'var(--red)':'var(--muted)'}">${warns.length}</span></div>
+      <div class="drawer-row"><span class="dr-key">Not on Marketplace</span><span class="dr-val" style="color:${notFound.length?'var(--muted)':'var(--muted)'}">${notFound.length}</span></div>
+    </div>
+    ${updates.length?`<div class="drawer-section">
+      <div class="drawer-section-title">Updates Available (${updates.length})</div>
+      ${updates.map(d=>`<a class="dep-chip" href="${esc(d.marketplace?.url||'#')}" target="_blank">
+        <span class="dep-chip-name">${esc(d.marketplace?.name||d.name)}</span>
+        <span class="dep-chip-ver">${esc(d.version)} → ${esc(d.marketplace?.bestCompatibleVersion||d.marketplace?.latestVersionNumber||'?')}${d.marketplace?.latestIsNewer?' (latest: '+esc(d.marketplace?.latestVersionNumber||'')+')':''}</span>
+        <span class="dep-chip-badge upd-yes">↑</span>
+      </a>`).join('')}
+    </div>`:''}
+    ${warns.length?`<div class="drawer-section">
+      <div class="drawer-section-title">Compatibility Warnings (${warns.length})</div>
+      ${warns.map(d=>`<div class="dep-chip">
+        <span class="dep-chip-name">${esc(d.marketplace?.name||d.name)}</span>
+        <span style="color:var(--red);font-size:11px">${esc(d.marketplace?.mxCompatibilityNote||'')}</span>
+      </div>`).join('')}
+    </div>`:''}
+    ${notFound.length?`<div class="drawer-section">
+      <div class="drawer-section-title">Not Found on Marketplace (${notFound.length})</div>
+      ${notFound.map(d=>`<div class="dep-chip" style="opacity:0.7">
+        <span class="dep-chip-name">${esc(d.name)}</span>
+        <span class="dep-chip-ver">v${esc(d.version||'?')}</span>
+        <span class="dep-chip-badge badge-unknown">?</span>
+      </div>`).join('')}
+    </div>`:''}`;
+  openDrawer();
+}
+
+function showDepDrawer(id) {
+  const dep = typeof id==='number'
+    ? flatDeps.find(d=>d.packageId===id)
+    : flatDeps.find(d=>d.name===id);
+  if (!dep) return;
+  const sc=dep.supportCategory||'Unknown';
+  const cls=sc==='Platform'?'badge-platform':sc==='Partner'?'badge-partner':sc==='Community'?'badge-community':'badge-unknown';
+  document.getElementById('drawer-content').innerHTML = `
+    <div class="drawer-title">${esc(dep.name)}</div>
+    <div class="drawer-sub">Used in ${dep.appCount} app${dep.appCount>1?'s':''} · contentId: ${dep.contentId||dep.packageId||'—'}</div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Marketplace Info</div>
+      <div class="drawer-row"><span class="dr-key">Publisher</span><span class="dr-val">${esc(dep.publisher||'—')}</span></div>
+      <div class="drawer-row"><span class="dr-key">Support Tier</span><span class="dr-val"><span class="badge ${cls}">${sc}</span></span></div>
+      <div class="drawer-row"><span class="dr-key">Installed Version</span><span class="dr-val" style="font-family:var(--mono)">${esc(dep.version||'?')}</span></div>
+      <div class="drawer-row"><span class="dr-key">Best for your Mx</span><span class="dr-val" style="font-family:var(--mono);color:${dep.updateAvailable?'var(--orange-d)':'var(--green)'}">${esc(dep.bestCompatibleVersion||dep.latestVersionNumber||'n/a')}${dep.updateAvailable?' ↑':''}</span></div>
+      <div class="drawer-row"><span class="dr-key">Absolute Latest</span><span class="dr-val" style="font-family:var(--mono)">${esc(dep.latestVersionNumber||'n/a')}${dep.latestIsNewer?' <span style=\'color:var(--muted);font-size:11px\'>(needs newer Mx)</span>':''}</span></div>
+      <div class="drawer-row"><span class="dr-key">Min Mx for Best</span><span class="dr-val" style="font-family:var(--mono)">${esc(dep.bestCompatibleMinMx||dep.minSupportedMendixVersion||'n/a')}</span></div>
+      <div class="drawer-row"><span class="dr-key">Compatibility</span><span class="dr-val" style="color:${dep.mxCompatible===false?'var(--red)':dep.mxCompatible===true?'var(--green)':'var(--muted)'}">${dep.mxCompatible===false?'⚠ Incompatible':dep.mxCompatible===true?'✓ Compatible':'Unknown'}</span></div>
+      <div class="drawer-row"><span class="dr-key">License</span><span class="dr-val"><a href="${esc(dep.licenseUrl||'#')}" target="_blank" style="color:var(--orange)">${esc(dep.licenseUrl||'—')}</a></span></div>
+      ${dep.url?`<div class="drawer-row"><span class="dr-key">Marketplace</span><span class="dr-val"><a href="${esc(dep.url)}" target="_blank" style="color:var(--orange)">Open ↗</a></span></div>`:''}
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-section-title">Used in Apps (${dep.appNames.length})</div>
+      ${dep.appNames.map(n=>`<div class="dep-chip"><span class="dep-chip-name">${esc(n)}</span></div>`).join('')}
+    </div>`;
+  openDrawer();
+}
+
+function openDrawer()  { document.getElementById('drawer').classList.add('open'); }
+function closeDrawer() { document.getElementById('drawer').classList.remove('open'); }
+
+// ── HELPERS ───────────────────────────────────────────
+function nav(page, btn) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  btn.classList.add('active');
+  closeDrawer();
+}
+
+function toggleFilter(set, key, btnId, renderFn) {
+  const btn = document.getElementById(btnId);
+  if (set.has(key)) { set.delete(key); btn.classList.remove('on'); }
+  else              { set.add(key);    btn.classList.add('on'); }
+  renderFn();
+}
+
+function sortTable(sortObj, key, renderFn, th) {
+  if (sortObj.key===key) sortObj.asc=!sortObj.asc;
+  else { sortObj.key=key; sortObj.asc=true; }
+  document.querySelectorAll('thead th').forEach(t=>t.classList.remove('sorted'));
+  th.classList.add('sorted');
+  renderFn();
+}
+
+function riskLevel(score) {
+  if (score>=50) return {cls:'risk-critical', label:'Critical'};
+  if (score>=25) return {cls:'risk-high',     label:'High'};
+  if (score>=10) return {cls:'risk-medium',   label:'Medium'};
+  return {cls:'risk-low', label:'Low'};
+}
+
+function shortName(name) {
+  // Strip "PostNL " or "PostNL - " prefix for display in charts
+  return name.replace(/^PostNL\s*[-–]\s*/i,'').replace(/^PostNL\s+/i,'');
+}
+
+function esc(s) {
+  return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── EXCEL EXPORT ──────────────────────────────────────
+function exportExcel() {
+  if (!R) return;
+
+  const wb = XLSX.utils.book_new();
+
+  // ── Sheet 1: App Overview ────────────────────────────
+  const appHeader = [
+    'App Name', 'Subdomain', 'Mendix Version', 'Model Version',
+    'Repo Type', 'Branch', 'Scan Status',
+    'Total Modules', 'Updates Available', 'Compat Warnings',
+    'Not on Marketplace', 'Risk Score', 'Risk Level'
+  ];
+
+  const appData = appRows.map(a => [
+    a.appName,
+    a.appSubdomain + '.mendixcloud.com',
+    a.mxVersion,
+    a.modelVersion,
+    a.repoType,
+    a.branch,
+    a.scanStatus,
+    a.totalDeps,
+    a.updates,
+    a.compats,
+    a.notFound,
+    Math.round(a.riskScore),
+    riskLevel(a.riskScore).label
+  ]);
+
+  const appSheet = XLSX.utils.aoa_to_sheet([appHeader, ...appData]);
+
+  // Column widths
+  appSheet['!cols'] = [
+    {wch:45}, {wch:35}, {wch:18}, {wch:22},
+    {wch:10}, {wch:10}, {wch:12},
+    {wch:14}, {wch:16}, {wch:16},
+    {wch:18}, {wch:12}, {wch:12}
+  ];
+
+  XLSX.utils.book_append_sheet(wb, appSheet, 'App Overview');
+
+  // ── Sheet 2: Dependencies ────────────────────────────
+  const depHeader = [
+    'Module Name', 'Publisher', 'Support Category',
+    'Installed Version', 'Latest Version', 'Update Available',
+    'Mx Compatible (Latest)', 'Mx Compatibility Note',
+    'License URL', 'Marketplace URL', 'Used in Apps'
+  ];
+
+  // Collect all deps across all apps (one row per app+module combo for full detail)
+  const depRows = [];
+  for (const app of R.apps) {
+    if (app.scanStatus !== 'ok') continue;
+    for (const dep of (app.deps || [])) {
+      const m = dep.marketplace || {};
+      depRows.push([
+        m.name || dep.name,
+        m.publisher || '—',
+        m.supportCategory || (m.found ? '—' : 'Not Found'),
+        dep.version || '—',
+        m.latestVersionNumber || '—',
+        m.found ? (m.updateAvailable ? 'Yes' : 'No') : '—',
+        m.found ? (m.mxCompatible === true ? 'Yes' : m.mxCompatible === false ? 'No' : '—') : '—',
+        m.mxCompatibilityNote || '—',
+        m.licenseUrl || '—',
+        m.url || '—',
+        app.appName
+      ]);
+    }
+  }
+
+  const depSheet = XLSX.utils.aoa_to_sheet([depHeader, ...depRows]);
+  depSheet['!cols'] = [
+    {wch:35}, {wch:20}, {wch:18},
+    {wch:18}, {wch:16}, {wch:16},
+    {wch:22}, {wch:50},
+    {wch:40}, {wch:45}, {wch:45}
+  ];
+
+  XLSX.utils.book_append_sheet(wb, depSheet, 'Dependencies');
+
+  // ── Sheet 3: Not Found ───────────────────────────────
+  const nfHeader = ['App Name', 'Module Name', 'Installed Version'];
+  const nfRows = [];
+  for (const app of R.apps) {
+    if (app.scanStatus !== 'ok') continue;
+    for (const dep of (app.deps || [])) {
+      if (!dep.marketplace?.found) {
+        nfRows.push([app.appName, dep.name, dep.version || '—']);
+      }
+    }
+  }
+  const nfSheet = XLSX.utils.aoa_to_sheet([nfHeader, ...nfRows]);
+  nfSheet['!cols'] = [{wch:45}, {wch:35}, {wch:18}];
+  XLSX.utils.book_append_sheet(wb, nfSheet, 'Not on Marketplace');
+
+  // ── Write file ───────────────────────────────────────
+  const date = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, `mendix-portfolio-${date}.xlsx`);
+}
+</script>
+</body>
+</html>
