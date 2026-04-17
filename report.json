@@ -1,5 +1,5 @@
 {
-  "scannedAt": "2026-04-14T10:47:12.193Z",
+  "scannedAt": "2026-04-17T13:28:45.164Z",
   "apps": [
     {
       "appId": "aad0386a-223e-441b-ac59-b200f8d366f1",
@@ -663,7 +663,7 @@
       "appName": "PostNL-Moas-Cleaning",
       "appUrl": "https://pnl-moas-cleaning.mendixcloud.com",
       "mxVersion": "10.24.8.80126",
-      "modelVersion": "0.0.0.cafbc917",
+      "modelVersion": "0.0.0.f72d1d07",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -2658,7 +2658,7 @@
       "appName": "PostNL-MoaS-Process",
       "appUrl": "https://pnl-moas-process.mendixcloud.com",
       "mxVersion": "9.24.36.73625",
-      "modelVersion": "0.0.0.8030",
+      "modelVersion": "0.0.0.8039",
       "repoType": "svn",
       "branch": "trunk",
       "scanStatus": "ok",
@@ -4535,9 +4535,9 @@
             "publisher": "PostNL",
             "supportCategory": "Community",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "latestVersionNumber": "1.7.0",
+            "latestVersionNumber": "1.8.0",
             "minSupportedMendixVersion": "10.24.11",
-            "bestCompatibleVersion": "1.7.0",
+            "bestCompatibleVersion": "1.8.0",
             "bestCompatibleMinMx": "10.24.11",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -5028,7 +5028,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -5578,7 +5578,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -5897,8 +5897,8 @@
       "appSubdomain": "pnl-oompd-portal",
       "appName": "PostNL - OOM PD Portal",
       "appUrl": "https://pnl-oompd-portal.mendixcloud.com",
-      "mxVersion": "9.24.35.71123",
-      "modelVersion": "0.0.0.2258",
+      "mxVersion": "10.24.15.93102",
+      "modelVersion": "0.0.0.e747b5b8",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -5927,35 +5927,58 @@
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
             "latestVersionNumber": "4.4.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "3.5.0",
-            "bestCompatibleMinMx": "9.24.18",
+            "bestCompatibleVersion": "4.4.0",
+            "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
           "type": "module",
-          "name": "Encryption",
-          "version": "8.0.4",
-          "packageId": 1011,
+          "name": "MxModelReflection",
+          "version": "9.1.0",
+          "packageId": 69,
           "marketplace": {
             "found": true,
-            "contentId": 1011,
-            "name": "Encryption",
-            "url": "https://marketplace.mendix.com/link/component/1011",
+            "contentId": 69,
+            "name": "Mx Model Reflection",
+            "url": "https://marketplace.mendix.com/link/component/69",
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "11.1.0",
+            "latestVersionNumber": "9.1.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "10.0.7",
-            "bestCompatibleMinMx": "9.24.18",
+            "bestCompatibleVersion": "9.1.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "ObjectHandling",
+          "version": "5.1.0",
+          "packageId": 37114,
+          "marketplace": {
+            "found": true,
+            "contentId": 37114,
+            "name": "ObjectHandling",
+            "url": "https://marketplace.mendix.com/link/component/37114",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "5.2.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "5.2.0",
+            "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -5978,31 +6001,77 @@
         },
         {
           "type": "module",
-          "name": "NanoflowCommons",
-          "version": "3.0.2",
-          "packageId": 109515,
+          "name": "Encryption",
+          "version": "11.1.0",
+          "packageId": 1011,
           "marketplace": {
             "found": true,
-            "contentId": 109515,
-            "name": "Nanoflow Commons",
-            "url": "https://marketplace.mendix.com/link/component/109515",
+            "contentId": 1011,
+            "name": "Encryption",
+            "url": "https://marketplace.mendix.com/link/component/1011",
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "6.3.1",
-            "minSupportedMendixVersion": "11.7.0",
-            "bestCompatibleVersion": "6.3.1",
-            "bestCompatibleMinMx": "11.7.0",
-            "updateAvailable": true,
+            "latestVersionNumber": "11.1.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "11.1.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "Atlas_Core",
+          "version": "102680",
+          "packageId": 117187,
+          "marketplace": {
+            "found": true,
+            "contentId": 117187,
+            "name": "Atlas Core",
+            "url": "https://marketplace.mendix.com/link/component/117187",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "4.3.5",
+            "minSupportedMendixVersion": "11.0.0",
+            "bestCompatibleVersion": "4.3.5",
+            "bestCompatibleMinMx": "11.0.0",
+            "updateAvailable": false,
             "latestIsNewer": false,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 9.24.35.71123"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.15.93102"
+          }
+        },
+        {
+          "type": "module",
+          "name": "ExcelImporter",
+          "version": "11.2.0",
+          "packageId": 72,
+          "marketplace": {
+            "found": true,
+            "contentId": 72,
+            "name": "Excel Importer",
+            "url": "https://marketplace.mendix.com/link/component/72",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "https://www.mendix.com/terms-of-use/",
+            "latestVersionNumber": "11.2.1",
+            "minSupportedMendixVersion": "10.24.11",
+            "bestCompatibleVersion": "11.2.1",
+            "bestCompatibleMinMx": "10.24.11",
+            "updateAvailable": true,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.11)"
           }
         },
         {
           "type": "module",
           "name": "CommunityCommons",
-          "version": "8.4.0",
+          "version": "11.5.0",
           "packageId": 170,
           "marketplace": {
             "found": true,
@@ -6014,18 +6083,18 @@
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
             "latestVersionNumber": "11.5.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "10.2.0",
-            "bestCompatibleMinMx": "9.18.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
+            "bestCompatibleVersion": "11.5.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
           "type": "module",
           "name": "LibraryLogging",
-          "version": "1.6.0",
+          "version": "1.11.0",
           "packageId": 113630,
           "marketplace": {
             "found": true,
@@ -6037,18 +6106,18 @@
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
             "latestVersionNumber": "1.11.0",
             "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "1.9.0",
-            "bestCompatibleMinMx": "9.18.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.21.0, project uses 9.24.35.71123"
+            "bestCompatibleVersion": "1.11.0",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
           "type": "module",
           "name": "CSV",
-          "version": "1.11.0",
+          "version": "1.22.0",
           "packageId": 108605,
           "marketplace": {
             "found": true,
@@ -6060,35 +6129,58 @@
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
             "latestVersionNumber": "1.22.0",
             "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "1.20.0",
-            "bestCompatibleMinMx": "9.18.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.21.0, project uses 9.24.35.71123"
+            "bestCompatibleVersion": "1.22.0",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
           "type": "module",
-          "name": "MxModelReflection",
-          "version": "6.2.0",
-          "packageId": 69,
+          "name": "DataWidgets",
+          "version": "3.8.0",
+          "packageId": 116540,
           "marketplace": {
             "found": true,
-            "contentId": 69,
-            "name": "Mx Model Reflection",
-            "url": "https://marketplace.mendix.com/link/component/69",
+            "contentId": 116540,
+            "name": "Data Widgets",
+            "url": "https://marketplace.mendix.com/link/component/116540",
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "9.1.0",
+            "latestVersionNumber": "3.9.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "8.0.4",
-            "bestCompatibleMinMx": "9.24.24",
+            "bestCompatibleVersion": "3.9.0",
+            "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "UnitTesting",
+          "version": "9.5.2",
+          "packageId": 390,
+          "marketplace": {
+            "found": true,
+            "contentId": 390,
+            "name": "Unit Testing",
+            "url": "https://marketplace.mendix.com/link/component/390",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "10.0.6",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "10.0.6",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": true,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
@@ -6111,48 +6203,48 @@
         },
         {
           "type": "module",
-          "name": "ExcelImporter",
-          "version": "10.1.1",
-          "packageId": 72,
+          "name": "NanoflowCommons",
+          "version": "5.2.0",
+          "packageId": 109515,
           "marketplace": {
             "found": true,
-            "contentId": 72,
-            "name": "Excel Importer",
-            "url": "https://marketplace.mendix.com/link/component/72",
+            "contentId": 109515,
+            "name": "Nanoflow Commons",
+            "url": "https://marketplace.mendix.com/link/component/109515",
             "publisher": "Mendix",
             "supportCategory": "Platform",
-            "licenseUrl": "https://www.mendix.com/terms-of-use/",
-            "latestVersionNumber": "11.2.1",
-            "minSupportedMendixVersion": "10.24.11",
-            "bestCompatibleVersion": "10.7.7",
-            "bestCompatibleMinMx": "9.24.11",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "6.3.1",
+            "minSupportedMendixVersion": "11.7.0",
+            "bestCompatibleVersion": "5.2.1",
+            "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.11, project uses 9.24.35.71123"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.15.93102"
           }
         },
         {
           "type": "module",
-          "name": "UnitTesting",
-          "version": "9.0.4",
-          "packageId": 390,
+          "name": "OQL",
+          "version": "4.1.1",
+          "packageId": 66876,
           "marketplace": {
             "found": true,
-            "contentId": 390,
-            "name": "Unit Testing",
-            "url": "https://marketplace.mendix.com/link/component/390",
+            "contentId": 66876,
+            "name": "OQLModule",
+            "url": "https://marketplace.mendix.com/link/component/66876",
             "publisher": "Mendix",
             "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "10.0.6",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "9.6.4",
-            "bestCompatibleMinMx": "9.24.0",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "5.0.0",
+            "minSupportedMendixVersion": "11.6.0",
+            "bestCompatibleVersion": "4.1.2",
+            "bestCompatibleMinMx": "10.21.0",
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.21.0, project uses 9.24.35.71123"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.15.93102"
           }
         },
         {
@@ -6179,12 +6271,12 @@
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
             "latestVersionNumber": "4.3.0",
             "minSupportedMendixVersion": "11.0.0",
-            "bestCompatibleVersion": "4.3.0",
-            "bestCompatibleMinMx": "11.0.0",
+            "bestCompatibleVersion": "3.9.0",
+            "bestCompatibleMinMx": "10.21.0",
             "updateAvailable": true,
-            "latestIsNewer": false,
+            "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 9.24.35.71123"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.15.93102"
           }
         },
         {
@@ -6198,11 +6290,48 @@
         },
         {
           "type": "module",
-          "name": "Caching",
-          "version": "1.0",
-          "packageId": null,
+          "name": "MessageQueue",
+          "version": "3.0.0",
+          "packageId": 117616,
           "marketplace": {
-            "found": false
+            "found": true,
+            "contentId": 117616,
+            "name": "PostNL - MessageQueue",
+            "url": "https://marketplace.mendix.com/link/component/117616",
+            "publisher": "PostNL",
+            "supportCategory": "Community",
+            "licenseUrl": "https://www.apache.org/licenses/LICENSE-1.0",
+            "latestVersionNumber": "3.0.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "3.0.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "Caching",
+          "version": "4.0.0",
+          "packageId": 117317,
+          "marketplace": {
+            "found": true,
+            "contentId": 117317,
+            "name": "PostNL - Caching",
+            "url": "https://marketplace.mendix.com/link/component/117317",
+            "publisher": "PostNL",
+            "supportCategory": "Community",
+            "licenseUrl": "https://www.apache.org/licenses/LICENSE-1.0",
+            "latestVersionNumber": "4.0.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.0.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -6239,29 +6368,6 @@
         },
         {
           "type": "module",
-          "name": "Atlas_Core",
-          "version": "3.2.1",
-          "packageId": 117187,
-          "marketplace": {
-            "found": true,
-            "contentId": 117187,
-            "name": "Atlas Core",
-            "url": "https://marketplace.mendix.com/link/component/117187",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "4.3.5",
-            "minSupportedMendixVersion": "11.0.0",
-            "bestCompatibleVersion": "4.3.5",
-            "bestCompatibleMinMx": "11.0.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 9.24.35.71123"
-          }
-        },
-        {
-          "type": "module",
           "name": "Parallelism",
           "version": "1.1.0",
           "packageId": 116786,
@@ -6285,63 +6391,8 @@
         },
         {
           "type": "module",
-          "name": "MessageQueue",
-          "version": "1.14.0",
-          "packageId": 106354,
-          "marketplace": {
-            "found": false
-          }
-        },
-        {
-          "type": "module",
-          "name": "ObjectHandling",
-          "version": "3.1.0",
-          "packageId": 37114,
-          "marketplace": {
-            "found": true,
-            "contentId": 37114,
-            "name": "ObjectHandling",
-            "url": "https://marketplace.mendix.com/link/component/37114",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "5.2.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.1.0",
-            "bestCompatibleMinMx": "9.18.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
-          }
-        },
-        {
-          "type": "module",
-          "name": "SFTP",
-          "version": "2.5.0",
-          "packageId": 107256,
-          "marketplace": {
-            "found": true,
-            "contentId": 107256,
-            "name": "SFTP",
-            "url": "https://marketplace.mendix.com/link/component/107256",
-            "publisher": "Mendix",
-            "supportCategory": "Community",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "2.11.0",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "2.10.0",
-            "bestCompatibleMinMx": "9.18.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.21.0, project uses 9.24.35.71123"
-          }
-        },
-        {
-          "type": "module",
           "name": "UserCommons",
-          "version": "1.0.1",
+          "version": "2.2.1",
           "packageId": 223053,
           "marketplace": {
             "found": true,
@@ -6353,35 +6404,35 @@
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
             "latestVersionNumber": "2.2.1",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "1.0.4",
-            "bestCompatibleMinMx": "9.24.2",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.0, project uses 9.24.35.71123"
+            "bestCompatibleVersion": "2.2.1",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
           "type": "module",
-          "name": "OQL",
-          "version": "2.4.0",
-          "packageId": 66876,
+          "name": "SFTP",
+          "version": "2.11.0",
+          "packageId": 107256,
           "marketplace": {
             "found": true,
-            "contentId": 66876,
-            "name": "OQLModule",
-            "url": "https://marketplace.mendix.com/link/component/66876",
+            "contentId": 107256,
+            "name": "SFTP",
+            "url": "https://marketplace.mendix.com/link/component/107256",
             "publisher": "Mendix",
-            "supportCategory": "Platform",
+            "supportCategory": "Community",
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "5.0.0",
-            "minSupportedMendixVersion": "11.6.0",
-            "bestCompatibleVersion": "3.0.0",
-            "bestCompatibleMinMx": "9.18.4",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 9.24.35.71123"
+            "latestVersionNumber": "2.11.0",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "2.11.0",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         }
       ]
@@ -6809,9 +6860,9 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "2.2.1",
+            "bestCompatibleVersion": "2.3.0",
             "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -8970,9 +9021,9 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "2.2.1",
+            "bestCompatibleVersion": "2.3.0",
             "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -9805,7 +9856,7 @@
       "appName": "PostNL-Rick-Process",
       "appUrl": "https://pnl-rick-process.mendixcloud.com",
       "mxVersion": "9.24.36.73625",
-      "modelVersion": "0.0.0.3513",
+      "modelVersion": "0.0.0.3529",
       "repoType": "svn",
       "branch": "trunk",
       "scanStatus": "ok",
@@ -11043,7 +11094,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -11787,6 +11838,29 @@
       "deps": [
         {
           "type": "module",
+          "name": "UnitTesting",
+          "version": "10.0.6",
+          "packageId": 390,
+          "marketplace": {
+            "found": true,
+            "contentId": 390,
+            "name": "Unit Testing",
+            "url": "https://marketplace.mendix.com/link/component/390",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "10.0.6",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "10.0.6",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "Administration",
           "version": "4.4.0",
           "packageId": 23513,
@@ -11810,6 +11884,52 @@
         },
         {
           "type": "module",
+          "name": "DataWidgets",
+          "version": "3.9.0",
+          "packageId": 116540,
+          "marketplace": {
+            "found": true,
+            "contentId": 116540,
+            "name": "Data Widgets",
+            "url": "https://marketplace.mendix.com/link/component/116540",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "3.9.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "3.9.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "AmazonSQSConnector",
+          "version": "3.0.1",
+          "packageId": 214699,
+          "marketplace": {
+            "found": true,
+            "contentId": 214699,
+            "name": "Amazon SQS Connector",
+            "url": "https://marketplace.mendix.com/link/component/214699",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "3.0.1",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "3.0.1",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "AmazonS3Connector",
           "version": "107470",
           "packageId": 120340,
@@ -11824,6 +11944,52 @@
             "latestVersionNumber": "5.1.0",
             "minSupportedMendixVersion": "10.21.0",
             "bestCompatibleVersion": "5.1.0",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "NanoflowCommons",
+          "version": "5.2.1",
+          "packageId": 109515,
+          "marketplace": {
+            "found": true,
+            "contentId": 109515,
+            "name": "Nanoflow Commons",
+            "url": "https://marketplace.mendix.com/link/component/109515",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "6.3.1",
+            "minSupportedMendixVersion": "11.7.0",
+            "bestCompatibleVersion": "5.2.1",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": true,
+            "mxCompatible": false,
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.13.86719"
+          }
+        },
+        {
+          "type": "module",
+          "name": "AmazonDynamoDBConnector",
+          "version": "3.2.1",
+          "packageId": 204872,
+          "marketplace": {
+            "found": true,
+            "contentId": 204872,
+            "name": "Amazon DynamoDB Connector",
+            "url": "https://marketplace.mendix.com/link/component/204872",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "3.2.1",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "3.2.1",
             "bestCompatibleMinMx": "10.21.0",
             "updateAvailable": false,
             "latestIsNewer": false,
@@ -11852,52 +12018,6 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
-          "name": "OIDC",
-          "version": "110368",
-          "packageId": 120371,
-          "marketplace": {
-            "found": true,
-            "contentId": 120371,
-            "name": "OIDC SSO",
-            "url": "https://marketplace.mendix.com/link/component/120371",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.4.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.4.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
-          "name": "AWSAuthentication",
-          "version": "4.1.1",
-          "packageId": 120333,
-          "marketplace": {
-            "found": true,
-            "contentId": 120333,
-            "name": "AWS Authentication Connector",
-            "url": "https://marketplace.mendix.com/link/component/120333",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.1.3",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "4.1.3",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
@@ -11948,29 +12068,6 @@
         },
         {
           "type": "module",
-          "name": "AmazonSQSConnector",
-          "version": "3.0.0",
-          "packageId": 214699,
-          "marketplace": {
-            "found": true,
-            "contentId": 214699,
-            "name": "Amazon SQS Connector",
-            "url": "https://marketplace.mendix.com/link/component/214699",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "3.0.1",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "3.0.1",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "MxModelReflection",
           "version": "9.1.0",
           "packageId": 69,
@@ -11990,29 +12087,6 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
-          "name": "NanoflowCommons",
-          "version": "109909",
-          "packageId": 109515,
-          "marketplace": {
-            "found": true,
-            "contentId": 109515,
-            "name": "Nanoflow Commons",
-            "url": "https://marketplace.mendix.com/link/component/109515",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "6.3.1",
-            "minSupportedMendixVersion": "11.7.0",
-            "bestCompatibleVersion": "5.2.1",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.13.86719"
           }
         },
         {
@@ -12054,6 +12128,29 @@
             "latestVersionNumber": "11.5.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "11.5.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "OIDC",
+          "version": "4.4.0",
+          "packageId": 120371,
+          "marketplace": {
+            "found": true,
+            "contentId": 120371,
+            "name": "OIDC SSO",
+            "url": "https://marketplace.mendix.com/link/component/120371",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.4.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.4.0",
             "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": false,
             "latestIsNewer": false,
@@ -12118,29 +12215,6 @@
         },
         {
           "type": "module",
-          "name": "DataWidgets",
-          "version": "111076",
-          "packageId": 116540,
-          "marketplace": {
-            "found": true,
-            "contentId": 116540,
-            "name": "Data Widgets",
-            "url": "https://marketplace.mendix.com/link/component/116540",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "3.9.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "3.9.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "Parallelism",
           "version": "1.2.0",
           "packageId": 116786,
@@ -12164,29 +12238,6 @@
         },
         {
           "type": "module",
-          "name": "AmazonDynamoDBConnector",
-          "version": "3.2.0",
-          "packageId": 204872,
-          "marketplace": {
-            "found": true,
-            "contentId": 204872,
-            "name": "Amazon DynamoDB Connector",
-            "url": "https://marketplace.mendix.com/link/component/204872",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "3.2.1",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "3.2.1",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "LocalLoginFilter",
           "version": "2.1.0",
           "packageId": 111777,
@@ -12206,6 +12257,29 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 9.18.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "TaskQueueManager",
+          "version": "1.2.0",
+          "packageId": 220289,
+          "marketplace": {
+            "found": true,
+            "contentId": 220289,
+            "name": "Task Queue Manager",
+            "url": "https://marketplace.mendix.com/link/component/220289",
+            "publisher": "Kobeon",
+            "supportCategory": "Community",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "1.2.0",
+            "minSupportedMendixVersion": "10.24.14",
+            "bestCompatibleVersion": "1.1.0",
+            "bestCompatibleMinMx": "9.24.26",
+            "updateAvailable": false,
+            "latestIsNewer": true,
+            "mxCompatible": false,
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.14, project uses 10.24.13.86719"
           }
         },
         {
@@ -12265,6 +12339,29 @@
         },
         {
           "type": "module",
+          "name": "AWSAuthentication",
+          "version": "4.1.3",
+          "packageId": 120333,
+          "marketplace": {
+            "found": true,
+            "contentId": 120333,
+            "name": "AWS Authentication Connector",
+            "url": "https://marketplace.mendix.com/link/component/120333",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.1.3",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "4.1.3",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "OQL",
           "version": "110194",
           "packageId": 66876,
@@ -12284,52 +12381,6 @@
             "latestIsNewer": true,
             "mxCompatible": false,
             "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.13.86719"
-          }
-        },
-        {
-          "type": "module",
-          "name": "TaskQueueManager",
-          "version": "1.1.0",
-          "packageId": 220289,
-          "marketplace": {
-            "found": true,
-            "contentId": 220289,
-            "name": "Task Queue Manager",
-            "url": "https://marketplace.mendix.com/link/component/220289",
-            "publisher": "Kobeon",
-            "supportCategory": "Community",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "1.2.0",
-            "minSupportedMendixVersion": "10.24.14",
-            "bestCompatibleVersion": "1.1.0",
-            "bestCompatibleMinMx": "9.24.26",
-            "updateAvailable": false,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.14, project uses 10.24.13.86719"
-          }
-        },
-        {
-          "type": "module",
-          "name": "UnitTesting",
-          "version": "10.0.5",
-          "packageId": 390,
-          "marketplace": {
-            "found": true,
-            "contentId": 390,
-            "name": "Unit Testing",
-            "url": "https://marketplace.mendix.com/link/component/390",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "10.0.6",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "10.0.6",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         }
       ]
@@ -13031,9 +13082,9 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "2.2.1",
+            "bestCompatibleVersion": "2.3.0",
             "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -15398,7 +15449,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -15928,7 +15979,7 @@
       "appName": "PostNL - OOM TRP Process",
       "appUrl": "https://pnl-oom-trp-process.mendixcloud.com",
       "mxVersion": "10.24.16.96987",
-      "modelVersion": "10.0.0.70cb2c5e",
+      "modelVersion": "10.0.0.1e2c02e8",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -16300,9 +16351,9 @@
             "publisher": "PostNL",
             "supportCategory": "Community",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "latestVersionNumber": "1.7.0",
+            "latestVersionNumber": "1.8.0",
             "minSupportedMendixVersion": "10.24.11",
-            "bestCompatibleVersion": "1.7.0",
+            "bestCompatibleVersion": "1.8.0",
             "bestCompatibleMinMx": "10.24.11",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -17181,29 +17232,6 @@
         },
         {
           "type": "module",
-          "name": "UnitTesting",
-          "version": "10.0.5",
-          "packageId": 390,
-          "marketplace": {
-            "found": true,
-            "contentId": 390,
-            "name": "Unit Testing",
-            "url": "https://marketplace.mendix.com/link/component/390",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "10.0.6",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "10.0.6",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "UserCommons",
           "version": "2.2.1",
           "packageId": 223053,
@@ -17232,6 +17260,29 @@
           "packageId": null,
           "marketplace": {
             "found": false
+          }
+        },
+        {
+          "type": "module",
+          "name": "AWSAuthentication",
+          "version": "4.1.3",
+          "packageId": 120333,
+          "marketplace": {
+            "found": true,
+            "contentId": 120333,
+            "name": "AWS Authentication Connector",
+            "url": "https://marketplace.mendix.com/link/component/120333",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.1.3",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "4.1.3",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
@@ -17282,34 +17333,34 @@
         },
         {
           "type": "module",
+          "name": "OIDC",
+          "version": "4.4.0",
+          "packageId": 120371,
+          "marketplace": {
+            "found": true,
+            "contentId": 120371,
+            "name": "OIDC SSO",
+            "url": "https://marketplace.mendix.com/link/component/120371",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.4.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.4.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "MessageQueue",
           "version": "",
           "packageId": null,
           "marketplace": {
             "found": false
-          }
-        },
-        {
-          "type": "module",
-          "name": "AmazonS3Connector",
-          "version": "5.0.2",
-          "packageId": 120340,
-          "marketplace": {
-            "found": true,
-            "contentId": 120340,
-            "name": "Amazon S3 Connector",
-            "url": "https://marketplace.mendix.com/link/component/120340",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "5.1.0",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "5.1.0",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
@@ -17383,29 +17434,6 @@
         },
         {
           "type": "module",
-          "name": "OIDC",
-          "version": "110368",
-          "packageId": 120371,
-          "marketplace": {
-            "found": true,
-            "contentId": 120371,
-            "name": "OIDC SSO",
-            "url": "https://marketplace.mendix.com/link/component/120371",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.4.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.4.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "MxModelReflection",
           "version": "9.1.0",
           "packageId": 69,
@@ -17475,29 +17503,6 @@
         },
         {
           "type": "module",
-          "name": "DataWidgets",
-          "version": "111076",
-          "packageId": 116540,
-          "marketplace": {
-            "found": true,
-            "contentId": 116540,
-            "name": "Data Widgets",
-            "url": "https://marketplace.mendix.com/link/component/116540",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "3.9.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "3.9.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "OQL",
           "version": "110194",
           "packageId": 66876,
@@ -17521,25 +17526,25 @@
         },
         {
           "type": "module",
-          "name": "AWSAuthentication",
-          "version": "4.1.1",
-          "packageId": 120333,
+          "name": "DataWidgets",
+          "version": "3.9.0",
+          "packageId": 116540,
           "marketplace": {
             "found": true,
-            "contentId": 120333,
-            "name": "AWS Authentication Connector",
-            "url": "https://marketplace.mendix.com/link/component/120333",
+            "contentId": 116540,
+            "name": "Data Widgets",
+            "url": "https://marketplace.mendix.com/link/component/116540",
             "publisher": "Mendix",
             "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.1.3",
-            "minSupportedMendixVersion": "10.21.0",
-            "bestCompatibleVersion": "4.1.3",
-            "bestCompatibleMinMx": "10.21.0",
-            "updateAvailable": true,
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "3.9.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "3.9.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
             "latestIsNewer": false,
             "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -17567,25 +17572,48 @@
         },
         {
           "type": "module",
-          "name": "NanoflowCommons",
-          "version": "5.2.0",
-          "packageId": 109515,
+          "name": "UnitTesting",
+          "version": "10.0.6",
+          "packageId": 390,
           "marketplace": {
             "found": true,
-            "contentId": 109515,
-            "name": "Nanoflow Commons",
-            "url": "https://marketplace.mendix.com/link/component/109515",
+            "contentId": 390,
+            "name": "Unit Testing",
+            "url": "https://marketplace.mendix.com/link/component/390",
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "6.3.1",
-            "minSupportedMendixVersion": "11.7.0",
-            "bestCompatibleVersion": "5.2.1",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.13.86719"
+            "latestVersionNumber": "10.0.6",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "10.0.6",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "AmazonS3Connector",
+          "version": "5.1.0",
+          "packageId": 120340,
+          "marketplace": {
+            "found": true,
+            "contentId": 120340,
+            "name": "Amazon S3 Connector",
+            "url": "https://marketplace.mendix.com/link/component/120340",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "5.1.0",
+            "minSupportedMendixVersion": "10.21.0",
+            "bestCompatibleVersion": "5.1.0",
+            "bestCompatibleMinMx": "10.21.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.21.0)"
           }
         },
         {
@@ -17609,6 +17637,29 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 9.24.21)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "NanoflowCommons",
+          "version": "5.2.1",
+          "packageId": 109515,
+          "marketplace": {
+            "found": true,
+            "contentId": 109515,
+            "name": "Nanoflow Commons",
+            "url": "https://marketplace.mendix.com/link/component/109515",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "6.3.1",
+            "minSupportedMendixVersion": "11.7.0",
+            "bestCompatibleVersion": "5.2.1",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": true,
+            "mxCompatible": false,
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.13.86719"
           }
         },
         {
@@ -18554,7 +18605,7 @@
       "appName": "PostNL - STR Process",
       "appUrl": "https://pnl-lsp-str-proces.mendixcloud.com",
       "mxVersion": "9.24.40.80973",
-      "modelVersion": "9.4.0.11520",
+      "modelVersion": "9.4.0.11535",
       "repoType": "svn",
       "branch": "trunk",
       "scanStatus": "ok",
@@ -18953,7 +19004,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -20270,7 +20321,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.1.0",
             "bestCompatibleMinMx": "10.18.0",
@@ -20334,7 +20385,7 @@
       "appName": "PostNL - TRP Resources",
       "appUrl": "https://pnl-trp-resources.mendixcloud.com",
       "mxVersion": "10.24.16.96987",
-      "modelVersion": "10.0.0.45b25aa5",
+      "modelVersion": "10.0.0.088f0db5",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -20470,29 +20521,6 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 9.18.0)"
-          }
-        },
-        {
-          "type": "module",
-          "name": "DataWidgets",
-          "version": "3.8.1",
-          "packageId": 116540,
-          "marketplace": {
-            "found": true,
-            "contentId": 116540,
-            "name": "Data Widgets",
-            "url": "https://marketplace.mendix.com/link/component/116540",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "3.9.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "3.9.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -20700,6 +20728,29 @@
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 9.24.21)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "DataWidgets",
+          "version": "3.9.0",
+          "packageId": 116540,
+          "marketplace": {
+            "found": true,
+            "contentId": 116540,
+            "name": "Data Widgets",
+            "url": "https://marketplace.mendix.com/link/component/116540",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "latestVersionNumber": "3.9.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "3.9.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -22529,7 +22580,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "1.9.1",
             "bestCompatibleMinMx": "8.18.0",
@@ -22634,7 +22685,7 @@
       "appName": "PostNL - TRP Planning",
       "appUrl": "https://pnl-trp-planning.mendixcloud.com",
       "mxVersion": "10.24.16.96987",
-      "modelVersion": "1.1.0.6d52161b",
+      "modelVersion": "1.1.0.fced8d64",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -22701,6 +22752,29 @@
             "latestVersionNumber": "3.1.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "3.1.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "OIDC",
+          "version": "4.4.0",
+          "packageId": 120371,
+          "marketplace": {
+            "found": true,
+            "contentId": 120371,
+            "name": "OIDC SSO",
+            "url": "https://marketplace.mendix.com/link/component/120371",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.4.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.4.0",
             "bestCompatibleMinMx": "10.24.0",
             "updateAvailable": false,
             "latestIsNewer": false,
@@ -22960,9 +23034,9 @@
             "publisher": "PostNL",
             "supportCategory": "Community",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "latestVersionNumber": "1.7.0",
+            "latestVersionNumber": "1.8.0",
             "minSupportedMendixVersion": "10.24.11",
-            "bestCompatibleVersion": "1.7.0",
+            "bestCompatibleVersion": "1.8.0",
             "bestCompatibleMinMx": "10.24.11",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -22995,29 +23069,6 @@
         },
         {
           "type": "module",
-          "name": "OIDC",
-          "version": "4.2.1",
-          "packageId": 120371,
-          "marketplace": {
-            "found": true,
-            "contentId": 120371,
-            "name": "OIDC SSO",
-            "url": "https://marketplace.mendix.com/link/component/120371",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.4.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.4.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "Atlas_Core",
           "version": "3.19.0",
           "packageId": 117187,
@@ -23037,6 +23088,29 @@
             "latestIsNewer": false,
             "mxCompatible": false,
             "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
+          }
+        },
+        {
+          "type": "module",
+          "name": "LDP_Connector",
+          "version": "3.0.4",
+          "packageId": 204647,
+          "marketplace": {
+            "found": true,
+            "contentId": 204647,
+            "name": "LDP Connector",
+            "url": "https://marketplace.mendix.com/link/component/204647",
+            "publisher": "PostNL",
+            "supportCategory": "Community",
+            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "latestVersionNumber": "3.0.4",
+            "minSupportedMendixVersion": "10.24.16",
+            "bestCompatibleVersion": "3.0.4",
+            "bestCompatibleMinMx": "10.24.16",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.16)"
           }
         },
         {
@@ -23336,29 +23410,6 @@
             "latestIsNewer": true,
             "mxCompatible": false,
             "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.16.96987"
-          }
-        },
-        {
-          "type": "module",
-          "name": "LDP_Connector",
-          "version": "3.0.4",
-          "packageId": 204647,
-          "marketplace": {
-            "found": true,
-            "contentId": 204647,
-            "name": "LDP Connector",
-            "url": "https://marketplace.mendix.com/link/component/204647",
-            "publisher": "PostNL",
-            "supportCategory": "Community",
-            "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "latestVersionNumber": "3.0.4",
-            "minSupportedMendixVersion": "10.24.16",
-            "bestCompatibleVersion": "3.0.4",
-            "bestCompatibleMinMx": "10.24.16",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.16)"
           }
         },
         {
@@ -24011,6 +24062,29 @@
         },
         {
           "type": "module",
+          "name": "OIDC",
+          "version": "4.4.0",
+          "packageId": 120371,
+          "marketplace": {
+            "found": true,
+            "contentId": 120371,
+            "name": "OIDC SSO",
+            "url": "https://marketplace.mendix.com/link/component/120371",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.4.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.4.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "Core_Delta",
           "version": "1.1.0",
           "packageId": 213912,
@@ -24126,29 +24200,6 @@
         },
         {
           "type": "module",
-          "name": "OIDC",
-          "version": "110368",
-          "packageId": 120371,
-          "marketplace": {
-            "found": true,
-            "contentId": 120371,
-            "name": "OIDC SSO",
-            "url": "https://marketplace.mendix.com/link/component/120371",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.4.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.4.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": false,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "WebActions",
           "version": "108169",
           "packageId": 114337,
@@ -24177,8 +24228,8 @@
       "appSubdomain": "pnl-pbo-tactisch",
       "appName": "PostNL - PBO Generiek",
       "appUrl": "https://pnl-pbo-tactisch.mendixcloud.com",
-      "mxVersion": "10.24.15.93102",
-      "modelVersion": "1.0.0.9e29503b",
+      "mxVersion": "10.24.16.96987",
+      "modelVersion": "1.0.0.fd93569f",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -24438,52 +24489,6 @@
         },
         {
           "type": "module",
-          "name": "UserCommons",
-          "version": "2.1.3",
-          "packageId": 223053,
-          "marketplace": {
-            "found": true,
-            "contentId": 223053,
-            "name": "UserCommons",
-            "url": "https://marketplace.mendix.com/link/component/223053",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "2.2.1",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "2.2.1",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
-          "name": "OIDC",
-          "version": "4.1.0",
-          "packageId": 120371,
-          "marketplace": {
-            "found": true,
-            "contentId": 120371,
-            "name": "OIDC SSO",
-            "url": "https://marketplace.mendix.com/link/component/120371",
-            "publisher": "Mendix",
-            "supportCategory": "Platform",
-            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "4.4.0",
-            "minSupportedMendixVersion": "10.24.0",
-            "bestCompatibleVersion": "4.4.0",
-            "bestCompatibleMinMx": "10.24.0",
-            "updateAvailable": true,
-            "latestIsNewer": false,
-            "mxCompatible": true,
-            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
-          }
-        },
-        {
-          "type": "module",
           "name": "Atlas_Web_Content",
           "version": "3.4.1",
           "packageId": 117183,
@@ -24502,7 +24507,7 @@
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -24668,6 +24673,29 @@
         },
         {
           "type": "module",
+          "name": "UserCommons",
+          "version": "2.2.1",
+          "packageId": 223053,
+          "marketplace": {
+            "found": true,
+            "contentId": 223053,
+            "name": "UserCommons",
+            "url": "https://marketplace.mendix.com/link/component/223053",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "2.2.1",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "2.2.1",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
+          }
+        },
+        {
+          "type": "module",
           "name": "Encryption",
           "version": "11.0.3",
           "packageId": 1011,
@@ -24702,14 +24730,37 @@
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "6.1.0",
+            "latestVersionNumber": "6.2.0",
             "minSupportedMendixVersion": "10.24.13",
-            "bestCompatibleVersion": "6.1.0",
+            "bestCompatibleVersion": "6.2.0",
             "bestCompatibleMinMx": "10.24.13",
             "updateAvailable": true,
             "latestIsNewer": false,
             "mxCompatible": true,
             "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.13)"
+          }
+        },
+        {
+          "type": "module",
+          "name": "OIDC",
+          "version": "4.4.0",
+          "packageId": 120371,
+          "marketplace": {
+            "found": true,
+            "contentId": 120371,
+            "name": "OIDC SSO",
+            "url": "https://marketplace.mendix.com/link/component/120371",
+            "publisher": "Mendix",
+            "supportCategory": "Platform",
+            "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
+            "latestVersionNumber": "4.4.0",
+            "minSupportedMendixVersion": "10.24.0",
+            "bestCompatibleVersion": "4.4.0",
+            "bestCompatibleMinMx": "10.24.0",
+            "updateAvailable": false,
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.0)"
           }
         },
         {
@@ -24750,12 +24801,12 @@
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "latestVersionNumber": "3.0.4",
             "minSupportedMendixVersion": "10.24.16",
-            "bestCompatibleVersion": "3.0.3",
-            "bestCompatibleMinMx": "10.24.14",
+            "bestCompatibleVersion": "3.0.4",
+            "bestCompatibleMinMx": "10.24.16",
             "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.16, project uses 10.24.15.93102"
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.16)"
           }
         },
         {
@@ -24778,7 +24829,7 @@
             "updateAvailable": true,
             "latestIsNewer": false,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -24810,7 +24861,7 @@
             "updateAvailable": false,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.5.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.5.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -24833,7 +24884,7 @@
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -24888,7 +24939,7 @@
             "updateAvailable": false,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -24989,7 +25040,7 @@
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.15.93102"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -25005,9 +25056,9 @@
             "publisher": "Mendix",
             "supportCategory": "Platform",
             "licenseUrl": "http://en.wikipedia.org/wiki/MIT_License",
-            "latestVersionNumber": "6.1.0",
+            "latestVersionNumber": "6.2.0",
             "minSupportedMendixVersion": "10.24.13",
-            "bestCompatibleVersion": "6.1.0",
+            "bestCompatibleVersion": "6.2.0",
             "bestCompatibleMinMx": "10.24.13",
             "updateAvailable": true,
             "latestIsNewer": false,
@@ -28216,7 +28267,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -29934,7 +29985,7 @@
       "appName": "PostNL - TINA",
       "appUrl": "https://pnl-cbs-tina.mendixcloud.com",
       "mxVersion": "9.24.36.73625",
-      "modelVersion": "0.0.0.1460",
+      "modelVersion": "0.0.0.1472",
       "repoType": "svn",
       "branch": "trunk",
       "scanStatus": "ok",
@@ -30621,8 +30672,8 @@
       "appSubdomain": "pnl-pdkenmerken",
       "appName": "PostNL - PD Kenmerken",
       "appUrl": "https://pnl-pdkenmerken.mendixcloud.com",
-      "mxVersion": "10.24.1.74050",
-      "modelVersion": "1.0.0.080dae84",
+      "mxVersion": "10.24.16.96987",
+      "modelVersion": "1.0.0.33b10657",
       "repoType": "git",
       "branch": "main",
       "scanStatus": "ok",
@@ -30647,7 +30698,7 @@
             "updateAvailable": true,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.1.74050"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.6.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -30670,7 +30721,7 @@
             "updateAvailable": false,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.1.74050"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -30785,7 +30836,7 @@
             "updateAvailable": false,
             "latestIsNewer": true,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.1.74050"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.7.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -31010,12 +31061,12 @@
             "licenseUrl": "https://www.mendix.com/terms-of-use/",
             "latestVersionNumber": "11.2.1",
             "minSupportedMendixVersion": "10.24.11",
-            "bestCompatibleVersion": "11.1.3",
-            "bestCompatibleMinMx": "10.21.0",
+            "bestCompatibleVersion": "11.2.1",
+            "bestCompatibleMinMx": "10.24.11",
             "updateAvailable": true,
-            "latestIsNewer": true,
-            "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 10.24.11, project uses 10.24.1.74050"
+            "latestIsNewer": false,
+            "mxCompatible": true,
+            "mxCompatibilityNote": "✓ Compatible (requires Mx >= 10.24.11)"
           }
         },
         {
@@ -31125,7 +31176,7 @@
             "updateAvailable": true,
             "latestIsNewer": false,
             "mxCompatible": false,
-            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.1.74050"
+            "mxCompatibilityNote": "⚠ Latest requires Mx >= 11.0.0, project uses 10.24.16.96987"
           }
         },
         {
@@ -33983,7 +34034,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -34909,7 +34960,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -35784,7 +35835,7 @@
             "publisher": "CAPE Groep B.V.",
             "supportCategory": "Community",
             "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
-            "latestVersionNumber": "2.2.1",
+            "latestVersionNumber": "2.3.0",
             "minSupportedMendixVersion": "10.24.0",
             "bestCompatibleVersion": "2.0.0",
             "bestCompatibleMinMx": "9.24.0",
@@ -36513,7 +36564,7 @@
             "publisher": "PostNL",
             "supportCategory": "Community",
             "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-            "latestVersionNumber": "1.7.0",
+            "latestVersionNumber": "1.8.0",
             "minSupportedMendixVersion": "10.24.11",
             "bestCompatibleVersion": "1.0.1",
             "bestCompatibleMinMx": "9.24.35",
@@ -37301,15 +37352,15 @@
     "appsScanned": 68,
     "appsSkipped": 16,
     "appsFailed": 2,
-    "totalModules": 1769,
-    "updatesAvail": 1022,
-    "compatWarns": 777,
+    "totalModules": 1770,
+    "updatesAvail": 1003,
+    "compatWarns": 764,
     "bySupport": {
-      "Platform": 910,
+      "Platform": 911,
       "Partner": 0,
-      "Community": 525,
+      "Community": 527,
       "Unknown": 0,
-      "NotFound": 321
+      "NotFound": 319
     }
   }
 }
